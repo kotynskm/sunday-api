@@ -26,11 +26,15 @@ const User = sq.define("user", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
-sq.sync()
+sq.sync({ force: true })
   .then(() => {
-    console.log("User table created successfully!");
+    console.log("User table (re)created successfully!");
   })
   .catch((error) => {
     console.error("Unable to create table : ", error);
