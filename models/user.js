@@ -13,6 +13,7 @@ const User = sq.define("user", {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   firstName: {
     type: DataTypes.STRING,
@@ -27,7 +28,7 @@ const User = sq.define("user", {
     allowNull: false,
     unique: true,
   },
-  password: {
+  hashedPassword: {
     type: DataTypes.STRING,
     allowNull: false,
   },

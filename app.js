@@ -2,11 +2,13 @@ const express = require("express");
 const { testDbConnection } = require("./db");
 const app = express();
 const authRouter = require("./routes/authRouter");
+const bodyParser = require("body-parser");
 
-// for initial testing
-app.get("/", (req, res) => {
-  res.send("Hello!");
-});
+// Parse JSON bodies
+app.use(bodyParser.json());
+
+// Parse URL-encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 
 testDbConnection();
 
