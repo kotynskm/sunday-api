@@ -22,10 +22,11 @@ const authController = {
       let errors = [];
       if (error.name === "SequelizeValidationError") {
         errors = error.errors.map((error) => error.message);
-        res.status(500).json({ errors });
+        res.status(400).json({ errors });
+      } else {
+        console.error("error creating user: ", error);
+        res.status(500).json("error occurred when creating new user");
       }
-      console.error("error creating user: ", error);
-      res.status(500).json("error occurred when creating new user");
     }
   },
 };
