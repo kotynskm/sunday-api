@@ -14,23 +14,63 @@ const User = sq.define("user", {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
+    validate: {
+      notNull: {
+        msg: "Please provide an email",
+      },
+      notEmpty: {
+        msg: "Email cannot be empty",
+      },
+    },
   },
   firstName: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notNull: {
+        msg: "Please provide a first name",
+      },
+      notEmpty: {
+        msg: "First name cannot be empty",
+      },
+    },
   },
   lastName: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notNull: {
+        msg: "Please provide a last name",
+      },
+      notEmpty: {
+        msg: "Last name cannot be empty",
+      },
+    },
   },
   userName: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
+    validate: {
+      notNull: {
+        msg: "Please provide a username",
+      },
+      notEmpty: {
+        msg: "Username cannot be empty",
+      },
+    },
   },
   hashedPassword: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notNull: {
+        msg: "Please provide a password",
+      },
+      notEmpty: {
+        msg: "Password cannot be empty",
+      },
+    },
   },
 });
 
